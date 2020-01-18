@@ -1,5 +1,6 @@
-const siteAddress = new URL("https://www.yannichiodi.space")
+const siteAddress = new URL("https://www.parkietje.github.io")
 module.exports = {
+  pathPrefix: "/webpage",
   siteMetadata: {
     title: "Portfolio Website",
     author: "parkietje",
