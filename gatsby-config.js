@@ -1,10 +1,11 @@
-const siteAddress = new URL("https://www.parkietje.github.io")
+const siteAddress = new URL("http://www.parkietje.github.io")
+const path = require('path')
 module.exports = {
   pathPrefix: "/webpage",
   siteMetadata: {
-    title: "Portfolio Website",
+    title: "Portfolio webpage",
     author: "parkietje",
-    description: "A stylish portfolio website made with Gatsby.js"
+    description: "A portfolio website made with Gatsby.js"
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -21,14 +22,23 @@ module.exports = {
       },
     },
     {
-     resolve: `gatsby-plugin-s3`,
-     options: {
-         bucketName: 'www.yannichiodi.space',
-         protocol: 'https',
-         hostname: 'www.yannichiodi.space',
-     },
- },
+      resolve: `gatsby-plugin-s3`,
+      options: {
+        bucketName: 'www.yannichiodi.space',
+        protocol: 'https',
+        hostname: 'www.yannichiodi.space',
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: path.join(__dirname, `src`, `images`),
+      },
+    },
     'gatsby-plugin-sass',
-    'gatsby-plugin-offline'
+    'gatsby-plugin-offline',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp'
   ],
 }
