@@ -1,4 +1,6 @@
 import React from 'react'
+import EscapeOutside from "react-escape-outside"
+
 import Layout from '../components/layout'
 
 import Header from '../components/Header'
@@ -19,18 +21,19 @@ class IndexPage extends React.Component {
     this.handleCloseArticle = this.handleCloseArticle.bind(this)
     this.setWrapperRef = this.setWrapperRef.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
+    this.handleEscapeOutside = this.handleEscapeOutside.bind(this)
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.timeoutId = setTimeout(() => {
-        this.setState({loading: ''});
+      this.setState({ loading: '' });
     }, 100);
     document.addEventListener('mousedown', this.handleClickOutside);
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     if (this.timeoutId) {
-        clearTimeout(this.timeoutId);
+      clearTimeout(this.timeoutId);
     }
     document.removeEventListener('mousedown', this.handleClickOutside);
   }
@@ -89,20 +92,28 @@ class IndexPage extends React.Component {
     }
   }
 
+  handleEscapeOutside() {
+    if (this.state.isArticleVisible) {
+      this.handleCloseArticle();
+    }
+  }
+
   render() {
     return (
       <Layout location={this.props.location}>
         <div className={`body ${this.state.loading} ${this.state.isArticleVisible ? 'is-article-visible' : ''}`}>
           <div id="wrapper">
             <Header onOpenArticle={this.handleOpenArticle} timeout={this.state.timeout} />
-            <Main
-              isArticleVisible={this.state.isArticleVisible}
-              timeout={this.state.timeout}
-              articleTimeout={this.state.articleTimeout}
-              article={this.state.article}
-              onCloseArticle={this.handleCloseArticle}
-              setWrapperRef={this.setWrapperRef}
-            />
+            <EscapeOutside onEscapeOutside={this.handleEscapeOutside}>
+              <Main
+                isArticleVisible={this.state.isArticleVisible}
+                timeout={this.state.timeout}
+                articleTimeout={this.state.articleTimeout}
+                article={this.state.article}
+                onCloseArticle={this.handleCloseArticle}
+                setWrapperRef={this.setWrapperRef}
+              />
+            </EscapeOutside>
             <Footer timeout={this.state.timeout} />
           </div>
           <div id="bg"></div>
