@@ -29,6 +29,7 @@ class IndexPage extends React.Component {
       this.setState({ loading: '' });
     }, 100);
     document.addEventListener('mousedown', this.handleClickOutside);
+    document.addEventListener('escape', this.handleEscapeOutside);
   }
 
   componentWillUnmount() {
@@ -36,6 +37,8 @@ class IndexPage extends React.Component {
       clearTimeout(this.timeoutId);
     }
     document.removeEventListener('mousedown', this.handleClickOutside);
+    document.removeEventListener('escape', this.handleEscapeOutside);
+
   }
 
   setWrapperRef(node) {
@@ -93,9 +96,9 @@ class IndexPage extends React.Component {
   }
 
   handleEscapeOutside() {
-    if (this.state.isArticleVisible) {
-      this.handleCloseArticle();
-    }
+      if (this.state.isArticleVisible) {
+        this.handleCloseArticle();
+      }
   }
 
   render() {
