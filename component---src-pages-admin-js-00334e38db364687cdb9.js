@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{mR1u:function(e,n,t){"use strict";t.r(n);var a=t("q1tI"),l=t.n(a),o=t("Wbzz"),c=t("Bl7J");n.default=function(){return l.a.createElement(c.a,null,l.a.createElement("h1",null,"Hi from the admin page"),l.a.createElement("p",null,"Welcome to admin page"),l.a.createElement(o.Link,{to:"/"},"Go back to the homepage"))}}}]);
+//# sourceMappingURL=component---src-pages-admin-js-00334e38db364687cdb9.js.map
