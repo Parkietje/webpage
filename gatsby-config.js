@@ -3,9 +3,9 @@ const path = require('path')
 module.exports = {
   pathPrefix: "/webpage",
   siteMetadata: {
-    title: "Portfolio webpage",
+    title: "parkietje webpage",
     author: "parkietje",
-    description: "A portfolio website made with Gatsby.js"
+    description: "parkietje webpage"
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -18,7 +18,7 @@ module.exports = {
         background_color: '#663399',
         theme_color: '#663399',
         display: 'minimal-ui',
-        icon: 'src/images/diamond-logo.png', // This path is relative to the root of the site.
+        icon: 'src/images/diamond-logo.png',
       },
     },
     {
