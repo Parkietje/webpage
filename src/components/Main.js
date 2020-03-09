@@ -8,17 +8,9 @@ class Main extends React.Component {
 
     return (
       <div ref={this.props.setWrapperRef} id="main" style={this.props.timeout ? { display: 'flex' } : { display: 'none' }}>
-
-        {/* <article id="oldresume" className={`${this.props.article === 'oldresume' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{ display: 'none' }}>
-          <h2 className="major">Resume</h2>
-          <span className="image main"><img src={pic02} alt="" /></span>
-          <span className="image main"><img src={pic03} alt="" /></span>
-          {close}
-        </article> */}
-
         <article id="contact" className={`${this.props.article === 'contact' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{ display: 'none' }}>
           <h2 className="major">Contact</h2>
-          <form method="post" action="#">
+          <form method="post" action="http://localhost/8080/">
             <div className="field half first">
               <label htmlFor="name">Name</label>
               <input type="text" name="name" id="name" />
@@ -33,7 +25,6 @@ class Main extends React.Component {
             </div>
             <ul className="actions">
               <li><input type="submit" value="Send Message" className="special" /></li>
-              <li><input type="reset" value="Reset" /></li>
             </ul>
           </form>
           <ul className="icons">

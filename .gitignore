@@ -3,6 +3,10 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+#gatsby docker https://github.com/aripalo/gatsby-docker
+site/node_modules
+site/public
+site/.cache
 
 # Project dependencies
 .cache
